@@ -1,5 +1,5 @@
 {
-    "name": "airs",
+    "name": "@spirival/airs",
     "description": "A minimalist framework-agnostic reactive state library designed to be small-sized, intuitive and simple to use.",
     "version": "1.0.0",
     "type": "module",
