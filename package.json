@@ -1,0 +1,28 @@
+{
+    "name": "airs",
+    "description": "A minimalist framework-agnostic reactive state library designed to be small-sized, intuitive and simple to use.",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "keywords": [
+        "typescript",
+        "library",
+        "state",
+        "reactive"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^22.10.7",
+        "typescript": "^5.0.2",
+        "vite": "^4.3.9",
+        "vite-plugin-dts": "^4.5.0"
+    },
+    "dependencies": {
+        "rxjs": "^7.8.1"
+    }
+}

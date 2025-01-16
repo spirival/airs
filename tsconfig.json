@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "module": "NodeNext",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "skipLibCheck": true,
+
+        "declaration": true,
+        "outDir": "dist",
+        "declarationMap": true,
+        "declarationDir": "dist", // Dossier où seront placées les déclarations
+        "emitDeclarationOnly": true, // Empêche la génération de fichiers JS lors de l'utilisation de TSC
+        "esModuleInterop": true,
+
+        /* Bundler mode */
+        "moduleResolution": "nodenext",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+
+        "paths": {
+            "state": ["./src/state/index.ts"]
+        }
+    },
+    "include": ["src/state"],
+    "exclude": ["node_modules", "dist"]
+}
