@@ -14,7 +14,7 @@
  * - A history-enabled helper to create states with redux devtools-like history navigation (undo, redo).
  */
 export * from './types/index.ts';
-// export * from './state.ts';
-// export * from './history.ts';
+export * from './state.ts';
+export * from './history.ts';
 export * from './types.ts';
 export * from './helpers.ts';

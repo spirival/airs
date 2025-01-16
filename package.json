@@ -3,6 +3,10 @@
     "description": "A minimalist framework-agnostic reactive state library designed to be small-sized, intuitive and simple to use.",
     "version": "1.0.0",
     "type": "module",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
@@ -14,7 +18,7 @@
         "state",
         "reactive"
     ],
-    "author": "Your Name",
+    "author": "spirival",
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^22.10.7",
