@@ -83,25 +83,6 @@ import { isLiteralObject } from './types/predicates.ts';
  * // Don't forget to unsubscribe when the observer is no longer used
 sub.unsubscribe();
  * ```
- *
- * @example
- *
- * Here is an example for managing a state history :
- * ```typescript
- * const l = history('10');
- * 
- * l.$.pipe(concatMap((v) => timer(1000).pipe(map(() => v)))).subscribe(
- *     console.log
- * );
- * 
- * for (let i = 9; i > 0; i--) l.set(`${i}`);
- * 
- * l.set('Engine ignition confirmed.');
- * l.set('Oh wait ! Wait !');
- * l.set("... It's ok guys. False alarm.");
- * l.undo(2);
- * l.set('Litoff !');
- * ```
  */
 export function state<T extends Primitive>(initialValue: T): State<Widen<T>>;
 export function state<T extends LiteralObject<T>>(
@@ -154,6 +135,25 @@ export function state<T>(initialValue: T): any {
  * @param initialValue - The initial value of the state.
  * @param historyLimit - The maximum number of states to retain in history ('none' for unlimited, defaults to 'none').
  * @returns A history state wrapper object with methods to get, set, undo, redo, and retrieve previous values.
+ *
+ * @example
+ *
+ * Here is an example for managing a state history :
+ * ```typescript
+ * const l = history('10');
+ *
+ * l.$.pipe(concatMap((v) => timer(1000).pipe(map(() => v)))).subscribe(
+ *     console.log
+ * );
+ *
+ * for (let i = 9; i > 0; i--) l.set(`${i}`);
+ *
+ * l.set('Engine ignition confirmed.');
+ * l.set('Oh wait ! Wait !');
+ * l.set("... It's ok guys. False alarm.");
+ * l.undo(2);
+ * l.set('Litoff !');
+ * ```
  */
 export function history<T>(
     initialValue: T,
