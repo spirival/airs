@@ -57,20 +57,26 @@ export class BaseHistoryState<T> extends BaseState<T> {
      * @param value - The new history limit ('none' or a number).
      */
     public set historyLimit(value: 'none' | number) {
+        const previousLimit = this._historyLimit;
         this._historyLimit = value;
+
         if (isNumber(this.historyLimit) && this.historyLimit < 1)
             this._historyLimit = 'none';
 
-        const historyLimit = this._historyLimit;
-        if (isNumber(historyLimit)) {
-            while (this.values.length > historyLimit) {
+        if (isNumber(this.historyLimit)) {
+            const limitDelta =
+                (previousLimit === 'none'
+                    ? this.values.length
+                    : previousLimit) - this.historyLimit;
+
+            while (this.values.length > this.historyLimit) {
                 this.values.shift();
             }
-            const delta = this.values.length - historyLimit;
-            if (delta > 0) {
-                this.currentValueIndex = Math.max(
+
+            if (limitDelta > 0) {
+                this.currentValueIndex = Math.min(
                     0,
-                    this.currentValueIndex - delta
+                    this.currentValueIndex - limitDelta
                 );
             }
         }
@@ -132,16 +138,19 @@ export class BaseHistoryState<T> extends BaseState<T> {
     }
 
     /**
-     * Retrieves a list of previous state values from the history.
-     * @param limit - The maximum number of previous values to retrieve (defaults to the full history length).
+     * Retrieves a list of previous state values from the history relative to current value index.
+     * @param limit - The maximum number of previous values to retrieve (defaults to the current value index).
      * @returns An array of previous state values.
      */
-    public getPreviousValues(limit: number = this.values.length): T[] {
+    public getPreviousValues(limit: number = this._currentValueIndex): T[] {
         limit =
             limit < 1
-                ? this.values.length
-                : Math.min(limit, this.values.length);
+                ? this._currentValueIndex
+                : Math.min(limit, this._currentValueIndex);
 
-        return this.values.slice(this.values.length - limit);
+        return this.values.slice(
+            Math.min(0, this._currentValueIndex - limit),
+            this._currentValueIndex
+        );
     }
 }

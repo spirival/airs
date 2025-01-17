@@ -9,8 +9,8 @@
         "declaration": true,
         "outDir": "dist",
         "declarationMap": true,
-        "declarationDir": "dist", // Dossier où seront placées les déclarations
-        "emitDeclarationOnly": true, // Empêche la génération de fichiers JS lors de l'utilisation de TSC
+        "declarationDir": "dist",
+        "emitDeclarationOnly": true,
         "esModuleInterop": true,
 
         /* Bundler mode */
@@ -26,10 +26,11 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
 
+        "baseUrl": ".",
         "paths": {
-            "state": ["./src/state/index.ts"]
+            "src/*": ["src/*"]
         }
     },
-    "include": ["src/state"],
+    "include": ["src", "tests"],
     "exclude": ["node_modules", "dist"]
 }

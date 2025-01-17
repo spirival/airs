@@ -1,30 +1,47 @@
 {
     "name": "@spirival/airs",
+    "version": "0.0.1",
     "description": "A minimalist framework-agnostic reactive state library designed to be small-sized, intuitive and simple to use.",
-    "version": "1.0.0",
-    "type": "module",
-    "types": "dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
-    "scripts": {
-        "dev": "vite",
-        "build": "tsc && vite build",
-        "preview": "vite preview"
-    },
     "keywords": [
         "typescript",
         "library",
         "state",
         "reactive"
     ],
-    "author": "spirival",
+    "homepage": "https://github.com/spirival/airs",
+    "bugs": {
+        "url": "https://github.com/spirival/airs/issues"
+    },
     "license": "MIT",
+    "author": "spirival",
+    "files": [
+        "dist/"
+    ],
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/airs.es.js",
+            "require": "./dist/airs.cjs",
+            "default": "./dist/airs.umd.js"
+        }
+    },
+    "repository": "github:spirival/airs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "test": "vitest",
+        "coverage": "vitest run --coverage"
+    },
     "devDependencies": {
         "@types/node": "^22.10.7",
+        "@vitest/coverage-v8": "^3.0.0",
         "typescript": "^5.0.2",
         "vite": "^4.3.9",
-        "vite-plugin-dts": "^4.5.0"
+        "vite-plugin-dts": "^4.5.0",
+        "vitest": "^3.0.0"
     },
     "dependencies": {
         "rxjs": "^7.8.1"

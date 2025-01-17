@@ -36,10 +36,10 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/state/index.ts'),
+            entry: resolve(__dirname, 'src/index.ts'),
             name: 'airs',
-            fileName: 'airs',
-            formats: ['es', 'umd'],
+            fileName: (format) => `airs.${format}.js`,
+            formats: ['es', 'cjs', 'umd'],
         },
         rollupOptions: {
             external: ['rxjs'],
@@ -52,8 +52,7 @@ export default defineConfig({
     },
     plugins: [
         dts({
-            include: ['src/state/**/*'], // Génère des types uniquement pour "state"
-            outDir: 'dist', // Dossier de sortie des types
+            include: ['src'], // Génère des types uniquement pour "state"
         }),
     ],
 });

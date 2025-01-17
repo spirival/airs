@@ -174,19 +174,22 @@ export function history<T>(
                 }
                 return s.value;
             },
-            get historyLimit() {
-                return s.historyLimit;
-            },
-            set historyLimit(newLimit: 'none' | number) {
-                s.historyLimit = newLimit;
-            },
+
             undo: BaseHistoryState.prototype.undo.bind(s),
             redo: BaseHistoryState.prototype.redo.bind(s),
+            getAllValues: BaseHistoryState.prototype.getAllValues.bind(s),
             getPreviousValues:
                 BaseHistoryState.prototype.getPreviousValues.bind(s),
             $: s.value$,
         }
-    );
+    ) as HistoryState<T>;
+
+    Object.defineProperty(wrapper, 'historyLimit', {
+        get: () => s.historyLimit,
+        set: (newLimit: 'none' | number) => {
+            s.historyLimit = newLimit;
+        },
+    });
 
     return wrapper;
 }

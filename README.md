@@ -1,6 +1,42 @@
+<p align="center">
+  <img src="assets/images/air-logo.png" alt="Kintsugi logo" width="300">
+</p>
+
 # AIRS (Accessible Intuitive Reactive State)
 
 A lightweight and flexible **reactive state management library** designed for both primitive values and complex objects, with support for history management and reactivity.
+
+---
+
+<div align="center">
+  <!-- <a href="https://codecov.io/gh/spirival/airs" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/codecov/c/github/spirival/airs.svg" alt="Test Coverage">
+  </a> -->
+  <a href="https://github.com/spirival/airs/issues" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/github/issues/spirival/airs.svg" alt="Issues">
+  </a>
+</div>
+<br/>
+<div align="center">
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  </a>
+  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+  </a>
+  <a href="https://rxjs.dev/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white" alt="RxJS">
+  </a>
+  <a href="https://vitejs.fr/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  </a>
+  <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/-Vitest-252529?style=for-the-badge&logo=vitest&logoColor=FCC72B" alt="Vitest">
+  </a>
+  <a href="https://rxjs.dev/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" alt="NPM">
+  </a>
+</div>
 
 ---
 
@@ -64,7 +100,8 @@ A history state wrapper with the following methods and properties:
 - `history.set(value)`: Updates the state value.
 - `history.undo()`: Reverts to the previous state.
 - `history.redo()`: Moves forward in history.
-- `history.getPreviousValues()`: Retrieves past states.
+- `history.getAllValues()`: Retrieves all states values.
+- `history.getPreviousValues()`: Retrieves past states value.
 - `history.$`: Observable for state changes.
 
 ---

@@ -80,6 +80,13 @@ export interface HistoryState<T> extends State<T> {
     redo: typeof BaseHistoryState.prototype.redo;
 
     /**
+     * Retrieves a list of all state values from the history.
+     * Mirrors the `getAllValues` method of the BaseHistoryState class.
+     * @returns An array of all state values.
+     */
+    getAllValues: typeof BaseHistoryState.prototype.getAllValues;
+
+    /**
      * Retrieves a list of previous state values from the history.
      * Mirrors the `getPreviousValues` method of the BaseHistoryState class.
      * @param limit - The maximum number of previous values to retrieve (defaults to the full history length).
