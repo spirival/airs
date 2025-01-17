@@ -26,7 +26,10 @@
             "default": "./dist/airs.umd.js"
         }
     },
-    "repository": "github:spirival/airs",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/spirival/airs.git"
+    },
     "types": "dist/index.d.ts",
     "scripts": {
         "dev": "vite",
