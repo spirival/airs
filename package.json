@@ -1,6 +1,6 @@
 {
     "name": "@spirival/airs",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "A minimalist framework-agnostic reactive state library designed to be small-sized, intuitive and simple to use.",
     "keywords": [
         "typescript",
