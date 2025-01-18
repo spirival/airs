@@ -1,0 +1,65 @@
+name: Node.js CI & Publish
+
+on:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
+    release:
+        types: [created]
+
+jobs:
+    # Étape de build et tests
+    build-and-test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [18.x, 20.x, 22.x]
+        steps:
+            # Checkout du code
+            - uses: actions/checkout@v4
+
+            # Setup Node.js avec cache npm
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+
+            # Installation des dépendances
+            - name: Install dependencies
+              run: npm ci
+
+            # Build du projet (si nécessaire)
+            - name: Build the project
+              run: npm run build --if-present
+
+            # Exécution des tests
+            - name: Run tests
+              run: npm test
+
+    # Étape de publication
+    publish-npm:
+        needs: build-and-test
+        if: github.event_name == 'release' && github.event.action == 'created'
+        runs-on: ubuntu-latest
+        steps:
+            # Checkout du code
+            - uses: actions/checkout@v4
+
+            # Setup Node.js avec accès au registre npm
+            - name: Setup Node.js for publishing
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://registry.npmjs.org/
+
+            # Installation des dépendances
+            - name: Install dependencies
+              run: npm ci
+
+            # Publication sur npm
+            - name: Publish package to npm
+              run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
