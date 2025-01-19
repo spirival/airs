@@ -9,9 +9,9 @@ A lightweight and flexible **reactive state management library** designed for bo
 ---
 
 <div align="center">
-  <!-- <a href="https://codecov.io/gh/spirival/airs" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/codecov/c/github/spirival/airs.svg" alt="Test Coverage">
-  </a> -->
+  <a href="https://codecov.io/github/spirival/airs" >
+ <img src="https://codecov.io/github/spirival/airs/graph/badge.svg?token=GFV3SDTODA" alt="Test coverage"/>
+ </a>
   <a href="https://github.com/spirival/airs/issues" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/github/issues/spirival/airs.svg" alt="Issues">
   </a>
@@ -47,6 +47,7 @@ A lightweight and flexible **reactive state management library** designed for bo
 - **Patchable Literral Object States**: Update literral object states with partial changes.
 - **History Management**: Undo, redo, and traverse state history.
 - **TypeScript Support**: Enjoy robust type-checking and autocompletion.
+- **Universal**: Compatible with both server-side and client-side environments, offering seamless integration across platforms.
 
 ---
 
