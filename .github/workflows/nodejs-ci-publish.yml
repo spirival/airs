@@ -7,6 +7,7 @@ on:
         branches: ['main']
     release:
         types: [created]
+    workflow_dispatch:
 
 jobs:
     # Étape de build et tests
@@ -41,7 +42,7 @@ jobs:
     # Étape de publication
     publish-npm:
         needs: build-and-test
-        if: github.event_name == 'release' && github.event.action == 'created'
+        if: github.event_name == 'release' && github.event.action == 'created' || github.event_name == 'workflow_dispatch'
         runs-on: ubuntu-latest
         steps:
             # Checkout du code
